@@ -2425,6 +2425,16 @@ contains
        attname  = 'Fall_fco2_lnd'
        call metadata_set(attname, longname, stdname, units)
 
+      ! >>> mzheng，根据flds_co2c等flag 判断
+      call seq_flds_add(l2x_fluxes, "Fall_f14co2_lnd")
+      call seq_flds_add(x2a_fluxes, "Fall_f14co2_lnd")
+      longname = 'Surface flux of 14CO2 from land'
+      stdname  = 'surface_upward_flux_of_carbon_14_dioxide_where_land'
+      units    = 'moles m-2 s-1'
+      attname  = 'Fall_f14co2_lnd'
+      call metadata_set(attname, longname, stdname, units)
+      ! <<< mzheng 
+
     else if (flds_co2c) then
 
        call seq_flds_add(a2x_states, "Sa_co2prog")
@@ -2460,6 +2470,24 @@ contains
        units    = 'moles m-2 s-1'
        attname  = 'Faoo_fco2_ocn'
        call metadata_set(attname, longname, stdname, units)
+
+      ! >>> mzheng: 根据flds_co2c等flag 判断
+      call seq_flds_add(l2x_fluxes, "Fall_f14co2_lnd")
+      call seq_flds_add(x2a_fluxes, "Fall_f14co2_lnd")
+      longname = 'Surface flux of 14CO2 from land'
+      stdname  = 'surface_upward_flux_of_carbon_14_dioxide_where_land'
+      units    = 'moles m-2 s-1'
+      attname  = 'Fall_f14co2_lnd'
+      call metadata_set(attname, longname, stdname, units)
+      
+      ! call seq_flds_add(o2x_fluxes, "Faoo_f14co2_ocn")
+      ! call seq_flds_add(x2a_fluxes, "Faoo_f14co2_ocn")
+      ! longname = 'Surface flux of 14CO2 from ocean'
+      ! stdname  = 'surface_upward_flux_of_carbon_14_dioxide_where_open_sea'
+      ! units    = 'moles m-2 s-1'
+      ! attname  = 'Faoo_f14co2_ocn'
+      ! call metadata_set(attname, longname, stdname, units)
+      ! <<< mzheng 
 
     else if (flds_co2_dmsa) then
 
